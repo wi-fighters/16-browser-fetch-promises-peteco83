@@ -24,8 +24,10 @@ function startTimer() {
     }, 1000)
 }
 
-
-
 startButton.addEventListener("click", () => {
     startTimer();
 })
+
+// Pause timer 
+// Starting timer at 0 - handle case
+// Ending timer
