@@ -1,7 +1,9 @@
-const session = document.getElementById("session");
+// const session = document.getElementById("session");
 const inputTime = document.getElementById("time");
+const minutes = document.querySelector(".mins");
+const seconds = document.querySelector(".secs");
 
-session.addEventListener("click", (e) => {
+document.getElementById("session").addEventListener("click", (e) => {
     switch (e.target.id) {
         case "btn-plus":
             inputTime.value++;
@@ -14,13 +16,14 @@ session.addEventListener("click", (e) => {
 
 let ticking;
 function startTimer() {
-    let timeLeft = inputTime.value * 60;
+    let timeLeft = (Number(minutes.textContent) * 60) + Number(seconds.textContent);
     if (timeLeft > 0) {
         ticking = setInterval(() => {
             timeLeft--;
-            document.querySelector(".mins").textContent = `${(Math.floor(timeLeft / 60))}`;
-            document.querySelector(".secs").textContent = `${timeLeft % 60}`;
+            minutes.textContent = `${(Math.floor(timeLeft / 60))}`;
+            seconds.textContent = `${timeLeft % 60}`;
         }, 1000);
+        
     } else if (timeLeft <= 0) {
         stopTimer(ticking);
     }
@@ -28,19 +31,27 @@ function startTimer() {
 
 function stopTimer(timer) {
     clearInterval(timer);
-    document.querySelector(".mins").textContent = `00`;
-    document.querySelector(".secs").textContent = `00`;
+    minutes.textContent = `00`;
+    seconds.textContent = `00`;
+}
+
+function pauseTimer(timer) {
+    clearInterval(timer);
 }
 
 const buttons = document.querySelector(".buttons");
 buttons.addEventListener("click", (e) => {
     switch (e.target.id) {
         case "btn-start":
+        
+            minutes.textContent = inputTime.value;
             startTimer();
             break;
         case "btn-reset":
             stopTimer(ticking);
             break;
+        case "btn-pause":
+            pauseTimer(ticking);
     }
 })
 
