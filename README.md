@@ -2,7 +2,7 @@
 
 **Instructions**:
 * Using the structure in `index.html`, create a Pomodoro Timer using `setInterval()`. 
-* The user must be able to set the countdown via the input field as well as by increasing and decreasing the value with + & - buttons. 
+* The user must be able to set the countdown via the input field as well as by increasing and decreasing the value with `+` and `-` buttons. 
 * The user should be able to start the timer. 
 * The user should be able to reset the timer back to 0:0. 
 * The user should be able to pause and continue the timer. 
