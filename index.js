@@ -3,42 +3,20 @@ const buttons = document.querySelector(".buttons");
 const minutes = document.querySelector(".mins");
 const seconds = document.querySelector(".secs");
 
-// let ticking;
-// function startTimer() {
-//     //gets time in seconds
-//     let timeLeft = (Number(minutes.textContent) * 60) + Number(seconds.textContent);
-//     //begins countdown every second
-//     ticking = setInterval(() => {
-//         timeLeft--;
-//         //gets time left in minutes and seconds
-//         minutes.textContent = `${(Math.floor(timeLeft / 60))}`;
-//         seconds.textContent = `${timeLeft % 60}`;    
-//         if (timeLeft <= 0) {
-//             stopTimer(ticking);
-//         }
-//     }, 1000);
-// }
-
 let ticking;
-let timeLeft;
 function startTimer() {
     //gets time in seconds
-    timeLeft = (Number(minutes.textContent) * 60) + Number(seconds.textContent);
+    let timeLeft = (Number(minutes.textContent) * 60) + Number(seconds.textContent);
     //begins countdown every second
-    let startTicking = new Promise(function (resolve) {
-        resolve(timeLeft);
-    })
-    startTicking.then(function (remainder) {
-        ticking = setInterval(() => {
-            remainder--;
-            //gets time left in minutes and seconds
-            minutes.textContent = `${(Math.floor(remainder / 60))}`;
-            seconds.textContent = `${remainder % 60}`;
-            if (remainder <= 0) {
-                stopTimer(ticking);
-            }
-        }, 1000)
-    })
+    ticking = setInterval(() => {
+        timeLeft--;
+        //gets time left in minutes and seconds
+        minutes.textContent = `${(Math.floor(timeLeft / 60))}`;
+        seconds.textContent = `${timeLeft % 60}`;    
+        if (timeLeft <= 0) {
+            stopTimer(ticking);
+        }
+    }, 1000);
 }
 
 function stopTimer(timer) {
