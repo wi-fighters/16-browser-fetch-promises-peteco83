@@ -13,9 +13,10 @@
 <body class="d-flex flex-column align-items-center justify-content-center">
     <h1 class="border-bottom border-danger display-3">Pomodoro Timer</h1>
     <section id="timer" class="timer text-danger display-2">
-        <span class="mins">00</span><span>:</span><span class="secs">00</span>
+        <span class="mins">0</span><span>:</span><span class="secs">0</span>
     </section>
 
+    <label for="time-session">Input time in minutes</label>
     <section id="session" class="d-flex flex-row justify-content-around align-items-center">
         <button id="btn-minus" class=" btn btn-outline-danger">&minus;</button>
         <input type="number" id="time" class="session__time m-3 w-100" value="0">
@@ -24,8 +25,9 @@
 
     <section class="buttons">
     <button id="btn-start" class="btn btn-outline-danger">Start</button>
-    <button id="btn-pause" class="btn btn-outline-danger">Pause</button>
     <button id="btn-reset" class="btn btn-outline-danger">Reset</button>
+    <button id="btn-pause" class="btn btn-outline-danger">Pause</button>
+    <button id="btn-continue" class="btn btn-outline-danger">Continue</button>
 
 
 </section>
