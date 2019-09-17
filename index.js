@@ -1,4 +1,3 @@
-// const session = document.getElementById("session");
 const inputTime = document.getElementById("time");
 const buttons = document.querySelector(".buttons");
 const minutes = document.querySelector(".mins");
